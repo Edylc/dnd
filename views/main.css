@@ -1,0 +1,96 @@
+body {
+  background-color: #a00b0b;
+  font-family: Arial
+}
+
+.header {
+  background-color: darkred;
+  width: 100%;
+  padding: 3px;
+  color: white;
+  text-align: center;
+}
+
+.top {
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 60px;
+  font-size: 30px
+}
+
+#instruction {
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  top: 15px
+}
+
+.body {
+  position: relative;
+  top: 200px;
+  margin: 0 auto;
+  width: 100%
+}
+
+.options {
+  text-align: center;
+  font-size: 20px;
+  margin: 0 auto;
+  width: 50%;
+  background-color: #a00b0b;
+  color: white;
+}
+
+.details {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 50%;
+  display: none
+}
+
+#desc_header {
+  padding: 2px;
+  background-color: darkred;
+  color: white;
+  margin: 0;
+  text-align: left;
+  font-size: 17px;
+}
+
+#description {
+  font-family: Courier;
+  padding: 5px;
+  margin: 0;
+  background-color: darkgrey;
+  color: black
+}
+
+.button {
+  background-color: darkred;
+  padding: 5px;
+  margin: 7px;
+  border-radius: 5px;
+  color: white;
+  display: inline-block;
+  cursor: pointer
+}
+
+.button:hover {
+  background-color: darkgrey;
+  color: darkred
+}
+
+#prev_button {
+  display: none;
+  position: absolute;
+  left: 10px;
+  top: 5px
+}
+
+#next_button {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
