@@ -6,7 +6,7 @@
   </head>
   <body>
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script type='text/javascript' src='main.js'></script>
+    <script type='text/javascript' src='creation.js'></script>
     <div class='header top'>
       <div id='instruction'></div>
       <div class='button' id='next_button'>Next ></div>
@@ -17,6 +17,107 @@
       <div class='details'>
         <div id='desc_header'></div>
         <div id='description'></div>
+      </div>
+      <div class='equipment_picker'>
+        <div class='gold'>0gp</div>
+        <table>
+          <tbody>
+            <tr>
+              <td colspan='4' class='label'>Simple Melee Weapons</td>
+              <tr colspan='4' class='simple melee weapon'>
+              </tr>
+            </tr>
+            <tr>
+              <td colspan='4' class='label'>Simple Ranged Weapons</td>
+              <tr colspan='4' class='simple ranged weapon'>
+              </tr>
+            </tr>
+            <tr>
+              <td colspan='4' class='label'>Martial Melee Weapons</td>
+              <tr colspan='4' class='martial melee weapon'>
+              </tr>
+            </tr>
+            <tr>
+              <td colspan='4' class='label'>Martial Ranged Weapons</td>
+              <tr colspan='4' class='martial ranged weapon'>
+              </tr>
+            </tr>
+            <tr>
+              <td colspan='4' class='label'>Light Armor</td>
+              <tr colspan='4' class='light armor'>
+              </tr>
+            </tr>
+            <tr>
+              <td colspan='4' class='label'>Medium Armor</td>
+              <tr colspan='4' class='medium armor'>
+              </tr>
+            </tr>
+            <tr>
+              <td colspan='4' class='label'>Heavy Armor</td>
+              <tr colspan='4' class='heavy armor'>
+              </tr>
+            </tr>
+            <tr>
+              <td colspan='4' class='label'>Shields</td>
+              <tr colspan='4' class='shields'>
+              </tr>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class='stat_roller'>
+        <table>
+          <tr id='str'>
+            <td><div class='roll' id='roll_str'>Roll Strength</div></td>
+            <td class='roll_one'>0</td>
+            <td class='roll_two'>0</td>
+            <td class='roll_three'>0</td>
+            <td class='roll_four'>0</td>
+            <td class='total'><b>0</b></td>
+          </tr>
+          <tr id='dex'>
+            <td><div class='roll' id='roll_dex'>Roll Dexterity</div></td>
+            <td class='roll_one'>0</td>
+            <td class='roll_two'>0</td>
+            <td class='roll_three'>0</td>
+            <td class='roll_four'>0</td>
+            <td class='total'><b>0</b></td>
+          </tr>
+          <tr id='con'>
+            <td><div class='roll' id='roll_con'>Roll Constitution</div></td>
+            <td class='roll_one'>0</td>
+            <td class='roll_two'>0</td>
+            <td class='roll_three'>0</td>
+            <td class='roll_four'>0</td>
+            <td class='total'><b>0</b></td>
+          </tr>
+          <tr id='wis'>
+            <td><div class='roll' id='roll_wis'>Roll Wisdom</div></td>
+            <td class='roll_one'>0</td>
+            <td class='roll_two'>0</td>
+            <td class='roll_three'>0</td>
+            <td class='roll_four'>0</td>
+            <td class='total'><b>0</b></td>
+          </tr>
+          <tr id='int'>
+            <td><div class='roll' id='roll_int'>Roll Intelligence</div></td>
+            <td class='roll_one'>0</td>
+            <td class='roll_two'>0</td>
+            <td class='roll_three'>0</td>
+            <td class='roll_four'>0</td>
+            <td class='total'><b>0</b></td>
+          </tr>
+          <tr id='cha'>
+            <td><div class='roll' id='roll_cha'>Roll Charisma</div></td>
+            <td class='roll_one'>0</td>
+            <td class='roll_two'>0</td>
+            <td class='roll_three'>0</td>
+            <td class='roll_four'>0</td>
+            <td class='total'><b>0</b></td>
+          </tr>
+        </table>
+        <br></br>
+        You will be able to reassign these!
       </div>
     </div>
   </body>
