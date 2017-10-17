@@ -1,4 +1,10 @@
 //Gold amounts are probably fucky if you move back and forth a lot (i.e. it's set on equipSelect, won't change if you change class/background afterwards)
+//host on heroku, update url
+//prevent finish before everything is chosen
+//implement rolling, skill selection, reloading past character
+//finish transfer of player info
+var url = 'http://localhost';
+
 $(document).ready(function() {
   var state = race_select
   $('#instruction').html('Choose a Race');
@@ -76,8 +82,10 @@ function assignToPlayer(aspect) {
 }
 
 function page(target) {
-  if (target == null) {
-    
+  if (!target) {
+    storePlayer();
+    window.location = url + '/?player=true';
+    //return 'done';
   }
 
   $('#instruction').fadeOut(200);
@@ -85,6 +93,7 @@ function page(target) {
   $('.details').fadeOut(200);
   $('.equipment_picker').fadeOut(200);
   $('.stat_roller').fadeOut(200);
+  $('#next_button').html('Next >');
 
   if (target.type == 'equipment') {
     displayEquipment();
@@ -100,6 +109,7 @@ function page(target) {
       $('#instruction').html(target.instruction);
       $('.stat_roller').fadeIn(200);
       $('#instruction').fadeIn(200);
+      $('#next_button').html('Finish >');
     }, 200);
     return target;
   }
@@ -113,6 +123,10 @@ function page(target) {
   $('#prev_button').fadeIn();
   $('#next_button').fadeIn();
   return target;
+}
+
+function storePlayer() {
+  localStorage.setItem('player', JSON.stringify(player));
 }
 
 var equips_shown = false;

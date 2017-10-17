@@ -7,37 +7,37 @@
   <body>
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type='text/javascript' src='character.js'></script>
-    <div class='header' contenteditable='true'>Adventurer</div>
+    <div class='header' contenteditable='true' id='name'>Adventurer</div>
     <div class='column' id='stats'>
       <div class='base'>
         <div class='capper'>STR</div>
         <div class='stat' id='str' contenteditable='true'>0</div>
-        <div class='mod'>0</div>
+        <div class='mod' id='str_mod'>0</div>
       </div>
       <div class='base'>
         <div class='capper'>DEX</div>
         <div class='stat' id='dex' contenteditable='true'>0</div>
-        <div class='mod'>0</div>
+        <div class='mod' id='dex_mod'>0</div>
       </div>
       <div class='base'>
         <div class='capper'>CON</div>
         <div class='stat' id='con' contenteditable='true'>0</div>
-        <div class='mod'>0</div>
+        <div class='mod' id='con_mod'>0</div>
       </div>
       <div class='base'>
         <div class='capper'>WIS</div>
         <div class='stat' id='wis' contenteditable='true'>0</div>
-        <div class='mod'>0</div>
+        <div class='mod' id='wis_mod'>0</div>
       </div>
       <div class='base'>
         <div class='capper'>INT</div>
         <div class='stat' id='int' contenteditable='true'>0</div>
-        <div class='mod'>0</div>
+        <div class='mod' id='int_mod'>0</div>
       </div>
       <div class='base'>
         <div class='capper'>CHA</div>
         <div class='stat' id='cha' contenteditable='true'>0</div>
-        <div class='mod'>0</div>
+        <div class='mod' id='cha_mod'>0</div>
       </div>
     </div>
     <div class='column' id='random'>
@@ -178,7 +178,7 @@
         <div id='background' contenteditable='true'>Soldier</div>
       </div>
       <div class='base two'>
-        <div class='capper'>Spells</div>
+        <div class='capper'>Spells/Abilities</div>
         <div id='spells' contenteditable='true'>Magic Missile</div>
       </div>
     </div>
