@@ -45,6 +45,7 @@ $(document).ready(function() {
           }, 100);
         }, 100);
         $(this).attr('class', '');
+        $(this).off('click');
         player.stats[i.short].value = total;
         console.log(player);
         return;
