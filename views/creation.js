@@ -3,7 +3,7 @@
 //prevent finish before everything is chosen
 //implement rolling, skill selection, reloading past character
 //finish transfer of player info
-var url = 'http://dnd.herokuapp.com';
+var url = 'http://dnd.herokuapp.comu';
 
 $(document).ready(function() {
   var state = race_select
@@ -85,6 +85,7 @@ function page(target) {
   if (!target) {
     storePlayer();
     window.location = url + '/?player=true';
+    console.log('switching pages');
     //return 'done';
   }
 
