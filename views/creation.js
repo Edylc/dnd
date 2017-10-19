@@ -479,24 +479,24 @@ function Background(type, skills, tools, languages, equipment, gold, feature) {
   + '<p><b>Feature:</b> ' + feature + '</p>';
 }
 
-var hermit = new Background('Hermit', ['Medicine', 'Religion'], ['Herbalism Kit'], ['Choice'], ['Scroll case of notes', 'Winter blanket', 'Common clothes', 'Herbalism kit'], 5, 'Discovery');
+var hermit = new Background('Hermit', ['Medicine', 'Religion'], ['Herbalism Kit'], ['Choice Language'], ['Scroll case of notes', 'Winter blanket', 'Common clothes', 'Herbalism kit'], 5, 'Discovery');
 var urchin = new Background('Urchin', ['Sleight of Hand', 'Stealth'], ['Disguise Kit', 'thieves\' tools'], [], ['Small knife', 'Map of city', 'Pet mouse', 'Token from parents', 'Common clothes', 'Belt pouch'], 5, 'City Secrets');
 var charlatan = new Background('Charlatan', ['Deception', 'Sleight of hand'], ['Disguise Kit', 'Forgery Kit'], [], ['Fine clothes', 'Disguise kit', 'Con tools', 'Belt pouch'], 15, 'False Identity');
 var soldier = new Background('Soldier', ['Athletics', 'Intimidation'], ['Gaming set', 'Land vehicles'], [], ['Rank insignia', 'Trophy', 'Gaming set', 'Common clothes', 'Belt pouch'], 10, 'Military Rank');
 var pirate = new Background('Sailor (Pirate)', ['Athletics', 'Perception'], ['Navigator\'s tools', 'Water vehicles'], [], ['Belaying pin', '50ft silk rope', 'Lucky charm', 'Common clothes', 'Belt pouch'], 10, 'Bad Reputation');
 var sailor = new Background('Sailor', ['Athletics', 'Perception'], ['Navigator\'s tools', 'Water vehicles'], [], ['Belaying pin', '50ft silk rope', 'Lucky charm', 'Common clothes', 'Belt pouch'], 10, 'Ship\'s Passaage');
-var sage = new Background('Sage', ['Arcana', 'History'], [], ['Choice', 'Choice'], ['Bottle of black ink', 'Quill', 'Small knife', 'Letter from dead colleague with unanswered question', 'Common clothes', 'Belt pouch'], 10, 'Researcher');
+var sage = new Background('Sage', ['Arcana', 'History'], [], ['Choice Language', 'Choice Language'], ['Bottle of black ink', 'Quill', 'Small knife', 'Letter from dead colleague with unanswered question', 'Common clothes', 'Belt pouch'], 10, 'Researcher');
 var criminal = new Background('Criminal', ['Deception', 'Stealth'], ['Gaming set', 'thieves\' tools'], [], ['Crowbar', 'Dark common clothes w/ hood', 'Belt pouch'], 15, 'Criminal Contact');
 var spy = new Background('Criminal (Spy)', ['Deception', 'Stealth'], ['Gaming set', 'thieves\' tools'], [], ['Crowbar', 'Dark common clothes w/ hood', 'Belt puch'], 15, 'Spy Contact');
 var entertainer = new Background('Entertainer', ['Acrobatics', 'Performance'], ['Disguise kit', 'Musical instrument'], [], ['Musical instrument', 'Admirer\'s favor', 'Costume', 'Belt pouch'], 15, 'By Popular Demand');
 var gladiator = new Background('Entertainer (Gladiator)', ['Acrobatics', 'Performance'], ['Disguise kit', 'Musical instrument'], [], ['Inexpensive but unusual weapon', 'Admirer\'s favor', 'Costume', 'Belt puch'], 15, 'By Popular Demand');
-var outlander = new Background('Outlander', ['Athletics', 'Survival'], ['Musical instrument'], ['Choice'], ['Staff', 'Hunting trap', 'Animal trophy', 'Traveler\'s clothes', 'Belt pouch'], 10, 'Wanderer');
-var knight = new Background('Noble (Knight)', ['History', 'Persuasion'], ['Gaming set'], ['Choice'], ['Token of love', 'Fine clothes', 'Signet ring', 'Scroll of pedigree', 'Purse'], 25, 'Retainers');
+var outlander = new Background('Outlander', ['Athletics', 'Survival'], ['Musical instrument'], ['Choice Language'], ['Staff', 'Hunting trap', 'Animal trophy', 'Traveler\'s clothes', 'Belt pouch'], 10, 'Wanderer');
+var knight = new Background('Noble (Knight)', ['History', 'Persuasion'], ['Gaming set'], ['Choice Language'], ['Token of love', 'Fine clothes', 'Signet ring', 'Scroll of pedigree', 'Purse'], 25, 'Retainers');
 var folk_hero = new Background('Folk hero', ['Animal Handling', 'Survival'], ['Artisan\'s tools', 'Land vehicles'], [], ['Artisan\'s tools', 'Shovel', 'Iron pot', 'Common clothes', 'Belt pouch'], 10, 'Rustic Hospitality');
 var guild_artisan = new Background('Guild Artisan', ['Insight', 'Persuasion'], ['Artisan\'s tools'], [], ['Artisan\'s tools', 'Guild ltter of introduction', 'Traveler\'s clothes', 'Belt pouch'], 15, 'Guild Membership');
 var merchant = new Background('Guild Artisan (Guild Merchant)', ['Insight', 'Persuasion'], ['Navigator\'s tools or language of choice'], [], ['Mule', 'Cart', 'Guild letter of introduciton', 'Traveler\'s clothes', 'Belt pouch'], 15, 'Guild Membership');
-var acolyte = new Background('Acolyte', ['Insight', 'Religion'], [], ['Choice', 'Choice'], ['Holy symbol', 'Prayer book or prayer wheel', '5 sticks of incense', 'Vestments', 'Common clothes', 'Belt pouch'], 15, 'Shelter of the Faithful');
-var noble = new Background('Noble', ['History', 'Persuasion'], ['Gaming set'], ['Choice'], ['Fine clothes', 'Signet ring', 'Scroll of pedigree', 'Purse'], 25, 'Position of Privilege');
+var acolyte = new Background('Acolyte', ['Insight', 'Religion'], [], ['Choice Language', 'Choice Language'], ['Holy symbol', 'Prayer book or prayer wheel', '5 sticks of incense', 'Vestments', 'Common clothes', 'Belt pouch'], 15, 'Shelter of the Faithful');
+var noble = new Background('Noble', ['History', 'Persuasion'], ['Gaming set'], ['Choice Language'], ['Fine clothes', 'Signet ring', 'Scroll of pedigree', 'Purse'], 25, 'Position of Privilege');
 var backgrounds = [hermit, urchin, charlatan, soldier, pirate, sailor, sage, criminal, spy, entertainer, gladiator, outlander, knight, folk_hero, guild_artisan, merchant, acolyte, noble];
 
 function Class(type, abilities, cantrips, spells, spell_slots, start_gold, hit_die, proficiencies, tools, saving_throws, num_skills, skills) {
@@ -572,21 +572,21 @@ function Race(type, size, stats, languages, abilities) {
 }
 
 var forest_gnome = new Race('Gnome (Forest)', 'Small', [0, 1, 0, 2, 0, 0], ['Common', 'Gnomish'], ['Darkvision', 'Gnome Cunning', 'Natural Illusionist', 'Speak with Small Beasts']);
-var hill_dwarf = new Race('Dwarf (Hill)', 'Medium', [0, 0, 2, 0, 1, 0], ['Common', 'Dwarvish'], ['Speed', 'Darvision', 'Dwarven Resilience', 'Dwarven Combat Training', 'Tool Proficiency', 'Stonecunning', 'Languages', 'Dwarven Toughness']);
-var amonkhet_human = new Race('Human (Amonkhet)', 'Medium', [0, 0, 0, 0, 0, 0, 'Choose any two +1'], ['Skills', 'Feat'], ['Common', 'Choice']);
-var drow_elf = new Race('Elf (Drow)', 'Medium', [0, 2, 0, 0, 0, 1], ['Superior Darkvision', 'Keen Senses', 'Fey Ancestry', 'Trance', 'Sunlight Sensitivity', 'Drow magic', 'Drow Weapon Training'], ['Common', 'Elvish']);
-var dragonborn = new Race('Dragonborn', 'Medium', [2, 0, 0, 0, 0, 1], ['Draconic Ancestry', 'Breath Weapon', 'Damage Resistance'], ['Common', 'Draconic']);
-var human = new Race('Human', 'Medium', [1, 1, 1, 1, 1, 1], [], ['Common', 'Choice']);
-var high_elf = new Race('Elf (High)', 'Medium', [0, 2, 0, 1, 0, 0], ['Darkvision', 'Keen Senses', 'Fey Ancestry', 'Trance', 'Elf Weapon Training', 'Cantrip'], ['Common, Elvish']);
-var stout_halfling = new Race('Halfling (Stout)', 'Small', [0, 2, 1, 0, 0, 0], ['Lucky', 'Brave', 'Halfling Nimbleness', 'Stout Resilience'], ['Common', 'Halfling']);
-var lightfoot_halfling = new Race('Halfling (Lightfoot)', 'Small', [0, 2, 0, 0, 0, 1], ['Lucky', 'Brave', 'Halfling Nimbleness', 'Naturally Stealthy'], ['Common', 'Halfling']);
-var half_orc = new Race('Half-Orc', 'Medium', [2, 1, 0, 0, 0, 0], ['Darkvision', 'Menacing', 'Relentless Endurance', 'Savage Attacks'], ['Common', 'Orc']);
-var half_elf = new Race('Half-Elf', 'Medium', [0, 0, 0, 0, 0, 2, 'Choose any other two +1'], ['Darkvision', 'Fey Ancestry', 'Skill Versatility'], ['Common', 'Elvish', 'Choice']);
-var wood_elf = new Race('Elf (Wood)', 'Medium', [0, 2, 0, 0, 1, 0], ['Darkvision', 'Keen Senses', 'Fey Ancestry', 'Trance', 'Elf Weapon Training', 'Fleet of Foot', 'Mask of the Wild'], ['Common, Elvish']);
-var rock_gnome = new Race('Gnome (Rock)', 'Small', [0, 0, 1, 2, 0, 0], ['Darkvision', 'Gnome Cunning', 'Artificer\'s Lore', 'Tinker'], ['Common', 'Gnomish']);
-var mountain_dwarf = new Race('Dwarf (Mountain)', 'Medium', [2, 2, 0, 0, 0, 0], ['Speed', 'Darkvision', 'Dwarven Resilience', 'Dwarven Combat Training', 'Tool Proficiency', 'Stonecunning', 'Dwarven Armor Training'], ['Common', 'Dwarvish']);
-var infernal_tiefling = new Race('Tiefling (Infernal)', 'Medium', [0, 0, 0, 1, 0, 2], ['Darkvision', 'Hellish Resistance', 'Infernal Legacy'], ['Common', 'Infernal']);
-var variant_human = new Race('Human (Variant)', 'Medium', [0, 0, 0, 0, 0, 0, 'Choose any two +1'], ['Skills', 'Feat'], ['Common', 'Choice']);
+var hill_dwarf = new Race('Dwarf (Hill)', 'Medium', [0, 0, 2, 0, 1, 0], ['Common', 'Dwarvish'], ['Speed', 'Darkvision', 'Dwarven Resilience', 'Dwarven Combat Training', 'Tool Proficiency', 'Stonecunning', 'Dwarven Toughness']);
+var amonkhet_human = new Race('Human (Amonkhet)', 'Medium', [0, 0, 0, 0, 0, 0, 'Choose any two +1'], ['Common', 'Choice Language'], ['Skills', 'Feat']);
+var drow_elf = new Race('Elf (Drow)', 'Medium', [0, 2, 0, 0, 0, 1], ['Common', 'Elvish'], ['Superior Darkvision', 'Keen Senses', 'Fey Ancestry', 'Trance', 'Sunlight Sensitivity', 'Drow magic', 'Drow Weapon Training']);
+var dragonborn = new Race('Dragonborn', 'Medium', [2, 0, 0, 0, 0, 1], ['Common', 'Draconic'], ['Draconic Ancestry', 'Breath Weapon', 'Damage Resistance']);
+var human = new Race('Human', 'Medium', [1, 1, 1, 1, 1, 1], ['Common', 'Choice Language'], []);
+var high_elf = new Race('Elf (High)', 'Medium', [0, 2, 0, 1, 0, 0], ['Common, Elvish'], ['Darkvision', 'Keen Senses', 'Fey Ancestry', 'Trance', 'Elf Weapon Training', 'Cantrip']);
+var stout_halfling = new Race('Halfling (Stout)', 'Small', [0, 2, 1, 0, 0, 0], ['Common', 'Halfling'], ['Lucky', 'Brave', 'Halfling Nimbleness', 'Stout Resilience']);
+var lightfoot_halfling = new Race('Halfling (Lightfoot)', 'Small', [0, 2, 0, 0, 0, 1], ['Common', 'Halfling'], ['Lucky', 'Brave', 'Halfling Nimbleness', 'Naturally Stealthy']);
+var half_orc = new Race('Half-Orc', 'Medium', [2, 1, 0, 0, 0, 0], ['Common', 'Orc'], ['Darkvision', 'Menacing', 'Relentless Endurance', 'Savage Attacks']);
+var half_elf = new Race('Half-Elf', 'Medium', [0, 0, 0, 0, 0, 2, 'Choose any other two +1'], ['Common', 'Elvish', 'Choice Language'], ['Darkvision', 'Fey Ancestry', 'Skill Versatility']);
+var wood_elf = new Race('Elf (Wood)', 'Medium', [0, 2, 0, 0, 1, 0], ['Common, Elvish'], ['Darkvision', 'Keen Senses', 'Fey Ancestry', 'Trance', 'Elf Weapon Training', 'Fleet of Foot', 'Mask of the Wild']);
+var rock_gnome = new Race('Gnome (Rock)', 'Small', [0, 0, 1, 2, 0, 0], ['Common', 'Gnomish'], ['Darkvision', 'Gnome Cunning', 'Artificer\'s Lore', 'Tinker']);
+var mountain_dwarf = new Race('Dwarf (Mountain)', 'Medium', [2, 2, 0, 0, 0, 0], ['Common', 'Dwarvish'], ['Speed', 'Darkvision', 'Dwarven Resilience', 'Dwarven Combat Training', 'Tool Proficiency', 'Stonecunning', 'Dwarven Armor Training']);
+var infernal_tiefling = new Race('Tiefling (Infernal)', 'Medium', [0, 0, 0, 1, 0, 2], ['Common', 'Infernal'], ['Darkvision', 'Hellish Resistance', 'Infernal Legacy']);
+var variant_human = new Race('Human (Variant)', 'Medium', [0, 0, 0, 0, 0, 0, 'Choose any two +1'], ['Common', 'Choice Language'], ['Skills', 'Feat']);
 var races = [forest_gnome, hill_dwarf, amonkhet_human, drow_elf, dragonborn, human, high_elf, stout_halfling, lightfoot_halfling, half_orc, half_elf, wood_elf, rock_gnome, mountain_dwarf, infernal_tiefling, variant_human];
 
 //has to go at the end
