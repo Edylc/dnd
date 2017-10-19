@@ -1,6 +1,4 @@
 //Gold amounts are probably fucky if you move back and forth a lot (i.e. it's set on equipSelect, won't change if you change class/background afterwards)
-//host on heroku, update url
-//prevent finish before everything is chosen
 //implement rolling, skill selection, reloading past character
 //finish transfer of player info
 var url = 'http://dunder.herokuapp.com';
@@ -84,6 +82,12 @@ function assignToPlayer(aspect) {
 
 function page(target) {
   if (!target) {
+    for (var status of statuses) {
+      if (!player[status.type]) {
+        alert(status.instruction);
+        return statuses[statuses.length - 1];
+      }
+    }
     storePlayer();
     window.location = url + '/?player=true';
     console.log('switching pages');
@@ -100,6 +104,7 @@ function page(target) {
   if (target.type == 'equipment') {
     displayEquipment();
     setTimeout(function() {
+      $('.stat_roller').fadeOut(200);
       $('#instruction').html(target.instruction);
       $('.equipment_picker').fadeIn(200);
       $('#instruction').fadeIn(200);
@@ -108,6 +113,7 @@ function page(target) {
   }
   if (target.type == 'rolling') {
     setTimeout(function() {
+      $('.equipment_picker').fadeOut(200);
       $('#instruction').html(target.instruction);
       $('.stat_roller').fadeIn(200);
       $('#instruction').fadeIn(200);
@@ -124,10 +130,14 @@ function page(target) {
   $('.options').fadeIn(200);
   $('#prev_button').fadeIn();
   $('#next_button').fadeIn();
+  if (target.type == 'race')
+    $('#prev_button').fadeOut(200);
   return target;
 }
 
 function storePlayer() {
+  var health = player.class.hit_die.die + player.stats.con.mod();
+  player.hp = health;
   localStorage.setItem('player', JSON.stringify(player));
 }
 
@@ -586,3 +596,4 @@ background_select = new Status('background', 'Choose a Background', backgrounds,
 alignment_select = new Status('alignment', 'Choose an Alignment', alignments, background_select);
 equipment_select = new Status('equipment', 'Choose Starting Equipment', equipment,  alignment_select);
 rolling = new Status('rolling', 'Roll Your Stats', [], equipment_select);
+var statuses = [race_select, class_select, background_select, alignment_select];
