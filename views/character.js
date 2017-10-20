@@ -6,6 +6,7 @@ $(document).ready(function() {
   var li = ['str', 'dex', 'con', 'wis', 'int', 'cha'];
   var temp;
   if (!reload) { //load protoplayer
+    alert('There are a couple things you will need to do in Background.');
     for (var stat of li)
       $('#' + stat).html(player.stats[stat].value);
 
@@ -17,7 +18,7 @@ $(document).ready(function() {
     $('#equipment').html(makeEquipment(player.equipment));
     $('#inventory').html(makeLines(player.background.equipment));
     $('#proficiencies').html(makeLines([makeLines([player.background.feature]), makeLines(player.race.languages), makeLines(player.background.languages), makeLines(niceify(player.class.proficiencies.weapons)), makeLines(niceify(player.class.proficiencies.armor)), makeLines(player.race.abilities.concat([player.race.size])), makeLines(niceify(player.class.tools)), makeLines(player.background.tools)]));
-    $('#background').html(makeLines([player.background.type, player.alignment.type]));
+    $('#background').html(makeLines([player.background.type, player.alignment.type, reminders()]));
     $('#spells').html(makeLines(player.class.abilities) + '<br>' +
       'Spells: ' + player.class.spells + '<br>' +
       'Spell slots: ' + player.class.spell_slots + '<br>' +
@@ -127,6 +128,30 @@ function makeEquipment(li) {
     equip.push(temp);
   }
   return makeLines(equip);
+}
+
+function reminders() {
+  var remind = '<br>';
+  remind += 'REMINDERS:<br>';
+  var stat_mods = player.race.stats;
+  var num_skills = player.class.num_skills;
+  var skill_choices = player.class.skills;
+  var languages = 'Replace "Choose Language" with your choice<br>';
+  var ac = 'Change your AC based on equipment and dexterity<br>';
+  var background = 'Write yourself a background story!<br>';
+
+  remind += 'Racial stat modifiers:<br>';
+  for (var i in stat_mods) {
+    if (isNaN(stat_mods[i]))
+      remind += '-' + stat_mods[i] + '<br>';
+    else if (stat_mods[i] != 0)
+      remind += '+' + stat_mods[i] + ' ' + ['STR', 'DEX', 'CON', 'WIS', 'INT', 'CHA'][i] + '<br>';
+  }
+  remind += 'Choose ' + num_skills + ' of:<br>';
+  for (var skill of skill_choices)
+    remind += '-' + skill.type + '<br>';
+  remind += languages + ac + background;
+  return remind;
 }
 
 function makeLines(li) {

@@ -266,7 +266,7 @@ function Player() {
   this.skills;
   this.gp = 0;
   this.equipment = [];
-  this.ac = 0;
+  this.ac = 10;
   this.proficiencies = [];
 }
 
