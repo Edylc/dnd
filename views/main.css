@@ -300,3 +300,16 @@ tr {
   text-align: center;
   cursor: pointer;
 }
+
+.skill {
+  cursor: pointer;
+}
+
+#skills {
+  border-collapse: collapse;
+}
+
+.selected {
+  background-color: darkred;
+  padding: 10px;
+}

@@ -123,6 +123,12 @@ function page(target) {
   setTimeout(function() {
     $('#instruction').html(target.instruction);
     $('.options').html(makeButtons(target.options));
+    if (player[target.type]) {
+      $('.button').each(function() {
+        if ($(this).html() == player[target.type].type)
+          $(this).trigger('click');
+      });
+    }
   }, 200);
 
   $('#instruction').fadeIn(200);
@@ -481,7 +487,7 @@ function Background(type, skills, tools, languages, equipment, gold, feature) {
 
 var hermit = new Background('Hermit', ['Medicine', 'Religion'], ['Herbalism Kit'], ['Choice Language'], ['Scroll case of notes', 'Winter blanket', 'Common clothes', 'Herbalism kit'], 5, 'Discovery');
 var urchin = new Background('Urchin', ['Sleight of Hand', 'Stealth'], ['Disguise Kit', 'thieves\' tools'], [], ['Small knife', 'Map of city', 'Pet mouse', 'Token from parents', 'Common clothes', 'Belt pouch'], 5, 'City Secrets');
-var charlatan = new Background('Charlatan', ['Deception', 'Sleight of hand'], ['Disguise Kit', 'Forgery Kit'], [], ['Fine clothes', 'Disguise kit', 'Con tools', 'Belt pouch'], 15, 'False Identity');
+var charlatan = new Background('Charlatan', ['Deception', 'Sleight of Hand'], ['Disguise Kit', 'Forgery Kit'], [], ['Fine clothes', 'Disguise kit', 'Con tools', 'Belt pouch'], 15, 'False Identity');
 var soldier = new Background('Soldier', ['Athletics', 'Intimidation'], ['Gaming set', 'Land vehicles'], [], ['Rank insignia', 'Trophy', 'Gaming set', 'Common clothes', 'Belt pouch'], 10, 'Military Rank');
 var pirate = new Background('Sailor (Pirate)', ['Athletics', 'Perception'], ['Navigator\'s tools', 'Water vehicles'], [], ['Belaying pin', '50ft silk rope', 'Lucky charm', 'Common clothes', 'Belt pouch'], 10, 'Bad Reputation');
 var sailor = new Background('Sailor', ['Athletics', 'Perception'], ['Navigator\'s tools', 'Water vehicles'], [], ['Belaying pin', '50ft silk rope', 'Lucky charm', 'Common clothes', 'Belt pouch'], 10, 'Ship\'s Passaage');
