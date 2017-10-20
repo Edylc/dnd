@@ -5,17 +5,8 @@ $(document).ready(function() {
   //make mod dynamic
   var li = ['str', 'dex', 'con', 'wis', 'int', 'cha'];
   if (!reload) { //load protoplayer
-    for (var stat of li) {
-      var code = '$("#' + stat + '").on("input", function() {' +
-        'player.stats["' + stat + '"].value = $("#' + stat + '").html();' +
-        '$("#' + stat + '_mod").html(player.stats["' + stat + '"].mod());' +
-      '});';
-      eval(code);
-
-      code = '$("#' + stat + '").html(player.stats["' + stat + '"].value);';
-      eval(code);
-      updateMod(stat);
-    }
+    for (var stat of li)
+      $('#' + stat).html(player.stats[stat].value);
 
     $('#name').html(player.username);
     $('#hp').html(player.hp + '/' + player.hp);
@@ -31,16 +22,36 @@ $(document).ready(function() {
       'Cantrips: ' + player.class.cantrips + '<br>'
     );
 
-
-
-
   } else { //load Player
-    $('name').on('input', function() {player.username = $('name').html()});
-    $('hp').on('input', function() {player.hp = $('hp').html()});
-    $('ac').on('input', function() {player.ac = $('ac').html()});
-    $('name').on('input', function() {player.username = $('name').html()});
+    var all = li.concat(['name', 'hp', 'ac', 'proficiency', 'gold', 'equipment', 'inventory', 'skills', 'proficiencies', 'background', 'spells']);
+    for (var stat of all) {
+      $('#' + stat).html(player[stat]);
+    }
+  }
+  for (var stat of li)
+    updateMod(stat);
+
+  player = new Player();
+  var all = li.concat(['name', 'hp', 'ac', 'proficiency', 'gold', 'equipment', 'inventory', 'skills', 'proficiencies', 'background', 'spells']);
+  for (var stat of all) {
+    player[stat] = $('#' + stat).html();
   }
 
+  localStorage.setItem('player', JSON.stringify(player));
+  localStorage.setItem('reload', JSON.stringify(true));
+
+  function setStat(stat) {
+    $('#' + stat).on('input', function() {
+      player[stat] = $('#' + stat).html();
+      $('#' + stat + '_mod').html(Math.floor((parseInt($('#' + stat).html()) - 10) / 2))
+    });
+  }
+
+  for (var stat of all) {
+    $('#' + stat).on('input', setStat(stat))
+  }
+
+  $('#save').click(function() {localStorage.setItem('player', JSON.stringify(player))});
 });
 
 function makeEquipment(li) {
@@ -93,8 +104,7 @@ function niceify(item) {
 }
 
 function updateMod(stat) {
-  player.stats[stat].value = $('#' + stat).html();
-  $('#' + stat + '_mod').html(player.stats[stat].mod());
+  $('#' + stat + '_mod').html(Math.floor((parseInt($('#' + stat).html()) - 10) / 2));
 }
 
 function Player() {
@@ -107,7 +117,7 @@ function Player() {
   this.name;
   this.hp;
   this.ac;
-  this.pro;
+  this.proficiency;
   this.gold;
   this.equipment;
   this.inventory;
@@ -165,11 +175,4 @@ player.stats = {
 if (localStorage.getItem('player')) {
   player = JSON.parse(localStorage.getItem('player'));
   reload = JSON.parse(localStorage.getItem('reload'));
-  if (!reload) {
-    for (var stat of ['str', 'dex', 'con', 'wis', 'int', 'cha']) {
-      player.stats[stat].mod = function() {
-        return Math.floor((this.value - 10) / 2);
-      }
-    }
-  }
 }

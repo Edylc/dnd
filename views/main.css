@@ -285,5 +285,18 @@ tr {
 
 #gold {
   font-size: 20px;
+}
 
+#save {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  width: 50px;
+  height: 20px;
+  font-size: 15px;
+  color: white;
+  background-color: #a00b0b;
+  border: 3px solid grey;
+  text-align: center;
+  cursor: pointer;
 }

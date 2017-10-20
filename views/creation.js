@@ -1,6 +1,5 @@
 //Gold amounts are probably fucky if you move back and forth a lot (i.e. it's set on equipSelect, won't change if you change class/background afterwards)
 //implement rolling, skill selection, reloading past character
-//finish transfer of player info
 var url = 'http://dunder.herokuapp.com';
 
 $(document).ready(function() {
@@ -139,6 +138,7 @@ function storePlayer() {
   var health = player.class.hit_die.die + player.stats.con.mod();
   player.hp = health;
   localStorage.setItem('player', JSON.stringify(player));
+  localStorage.setItem('reload', JSON.stringify(false));
 }
 
 var equips_shown = false;
