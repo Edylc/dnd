@@ -119,7 +119,7 @@ function makeEquipment(li) {
         '&nbsp; &nbsp; ' + i.properties;
     }
     else if (i.base_ac) {
-      temp = '<i>' + i.type + '</i> - ' + i.base_ac + '<br>' +
+      temp = '<i>' + i.type + '</i> - ' + i.base_ac + 'AC<br>' +
         '&nbsp; &nbsp; ' + i.size;
     }
     else {
