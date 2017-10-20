@@ -41,11 +41,7 @@ $(document).ready(function() {
 
   for (var stat of li)
     updateMod(stat);
-  // for (var i of temp)
-  //   $('#' + getSkill(i).short + 'row').addClass('selected');
-  for (var skill of skills)
-    updateSkill(skill.short);
-    // $('#' + skill.short).html(String(parseInt($('#' + skill.short).html()) + parseInt($('#' + skill.stat + '_mod').html())));
+  updateSkills();
 
   player = new Player();
   var all = li.concat(['name', 'hp', 'ac', 'proficiency', 'gold', 'equipment', 'inventory', 'proficiencies', 'background', 'spells']);
@@ -54,27 +50,32 @@ $(document).ready(function() {
   }
 
   player.skills = temp;
-  console.log(player.skills);
   localStorage.setItem('player', JSON.stringify(player));
   localStorage.setItem('reload', JSON.stringify(true));
 
-  for (var stat of all) {
+  function setStat(stat) {
     $('#' + stat).on('input', function() {
       player[stat] = $('#' + stat).html();
-      $('#' + stat + '_mod').html(Math.floor((parseInt($('#' + stat).html()) - 10) / 2))
-      for (skill in skills) {
-        if (skill.short == stat) {
-          if ($('#' + skill.short + '_row').hasClass('selected')) {
-            $('#' + skill.short).html(String(parseInt(player.proficiency) + parseInt($('#' + skill.stat + '_mod'))).html());
-          } else {
-            $('#' + skill.short).html($('#' + skill.stat + '_mod').html());
-          }
-        }
-      }
     });
   }
+  for (var stat of all) {
+    setStat(stat)
+  }
+  function setStatAdvanced(stat) {
+    $('#' + stat).on('input', function() {
+      player[stat] = $('#' + stat).html();
+      $('#' + stat + '_mod').html(Math.floor((parseInter($('#' + stat).html()) - 10) / 2));
+      updateSkills();
+    });
+  }
+  for (var stat of li) {
+    setStatAdvanced(stat)
+  }
 
-  //set skills listener
+  $('#proficiency').on('input', function() {
+    player.proficiency = $('#proficiency').html();
+    updateSkills();
+  });
   $('.skill').click(function() {
     if ($(this).hasClass('selected')) {
       $(this).removeClass('selected');
@@ -90,6 +91,19 @@ $(document).ready(function() {
       player.skills.push(getSkill(skill).type);
     }
   })
+
+  $('#roll').click(function() {
+    var input = prompt('Roll:');
+    var d = input.indexOf('d');
+    var number = parseInter(input.substring(0, d));
+    var die = parseInter(input.substring(d + 1));
+    if (number == 0 || die == 0) {
+      alert('Crit fail!');
+    } else {
+      var roll = Math.floor(Math.random() * die + 1) * number;
+      alert('Rolled ' + roll);
+    }
+  });
 
   $('#save').click(function() {localStorage.setItem('player', JSON.stringify(player))});
 });
@@ -144,14 +158,20 @@ function niceify(item) {
 }
 
 function updateMod(stat) {
-  $('#' + stat + '_mod').html(Math.floor((parseInt($('#' + stat).html()) - 10) / 2));
+  $('#' + stat + '_mod').html(Math.floor((parseInter($('#' + stat).html()) - 10) / 2));
 }
 
 function updateSkill(skill) {
   if ($('#' + skill + '_row').hasClass('selected')) {
-    $('#' + skill).html(String(parseInt(player.proficiency) + parseInt($('#' + getSkill(skill).stat + '_mod').html())));
+    $('#' + skill).html(String(parseInter(player.proficiency) + parseInter($('#' + getSkill(skill).stat + '_mod').html())));
   } else {
     $('#' + skill).html($('#' + getSkill(skill).stat + '_mod').html());
+  }
+}
+
+function updateSkills() {
+  for (var skill of skills) {
+    updateSkill(skill.short);
   }
 }
 
@@ -249,7 +269,7 @@ var skills = [athletics, acrobatics, sleight, stealth, arcana, hist, investigati
 
 function getSkill(str) {
   for (var skill of skills) {
-    if (skill.type == str || skill.short == str)
+    if (str == skill.type || str == skill.short)
       return skill;
   }
 }
@@ -257,4 +277,10 @@ function getSkill(str) {
 if (localStorage.getItem('player')) {
   player = JSON.parse(localStorage.getItem('player'));
   reload = JSON.parse(localStorage.getItem('reload'));
+}
+
+function parseInter(str) {
+  if (isNaN(str) || str == '')
+    return 0
+  return parseInt(str);
 }
