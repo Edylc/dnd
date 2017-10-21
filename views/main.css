@@ -54,11 +54,11 @@ body {
   margin: 0 auto;
   margin-top: 20px;
   width: 600px;
-  display: none
+  display: none;
 }
 
 #desc_header {
-  padding: 2px;
+  padding: 4px;
   background-color: darkred;
   color: white;
   margin: 0;
@@ -68,7 +68,7 @@ body {
 
 #description {
   font-family: Courier;
-  padding: 5px;
+  padding: 5px 20px;
   margin: 0;
   background-color: darkgrey;
   color: black
