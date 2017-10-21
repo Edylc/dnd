@@ -95,6 +95,11 @@ $(document).ready(function() {
 
   $('#roll').click(function() {
     var input = prompt('Roll:');
+    if (!isNaN(input)) {
+      var roll = Math.floor(Math.random() * parseInter(input) + 1);
+      alert('Rolled ' + roll);
+      return;
+    }
     var d = input.indexOf('d');
     var number = parseInter(input.substring(0, d));
     var die = parseInter(input.substring(d + 1));
