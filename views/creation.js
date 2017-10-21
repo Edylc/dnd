@@ -1,7 +1,8 @@
 //Gold amounts are probably fucky if you move back and forth a lot (i.e. it's set on equipSelect, won't change if you change class/background afterwards)
 //implement rolling, skill selection, reloading past character
 var url = 'http://dunder.herokuapp.com';
-
+if (!navigator.onLine)
+  url = window.location.href.substring(0, window.location.href.indexOf('/creation.html')) + '/character.html'
 $(document).ready(function() {
   var state = race_select
   $('#instruction').html('Choose a Race');
@@ -72,8 +73,6 @@ function assignToPlayer(aspect) {
     player.background = toAssign;
   else if (toAssign instanceof Alignment)
     player.alignment = toAssign;
-  // else if (toAssign instanceof Equipment)
-  //   player.equipment = toAssign;
   else
     console.log('Bad assignment');
   console.log(player);
@@ -88,7 +87,7 @@ function page(target) {
       }
     }
     storePlayer();
-    window.location = url + '/?player=true';
+    window.location = url + (navigator.onLine ? '/?player=true' : '');
     console.log('switching pages');
     //return 'done';
   }
@@ -356,7 +355,7 @@ function Weapon(type, cost, damage, damage_type, weight, properties, ranged = fa
   this.display =
   '<tr class="equipment" onclick="equip(this)" id="' + this.type + '">'
   + '<td>' + type + '</td>'
-  + '<td>' + cost + 'gp</td>'
+  + '<td class="right">' + cost + ' gp</td>'
   + '<td>' + damage.type + ' ' + damage_type + '</td>'
   + '<td>' + list(properties) + '</td>'
   + '</tr>';
@@ -412,7 +411,7 @@ function Armor(type, cost, base_ac, strength_req, stealth_mod, size, weight) {
   this.display =
   '<tr class="equipment" onclick="equip(this)" id="' + this.type + '">'
   + '<td>' + type + '</td>'
-  + '<td>' + cost + 'gp</td>'
+  + '<td class="right">' + cost + ' gp</td>'
   + '<td>' + base_ac + 'AC' +  (size == 'Light' ? ' + Dex modifier ' : '') + (size == 'Medium' ? ' + Dex modifier (max 2) ' : '') + '</td>'
   + '<td>Strength req: ' + strength_req + (stealth_mod == 'Disadvantage' ? ', disadv to Stealth' : '') + '</td>'
   + '</tr>';
@@ -443,7 +442,7 @@ function Shield(type, cost, ac_mod, strength_req, stealth_mod, size, weight) {
   this.display =
   '<tr class="equipment" onclick="equip(this)" id="' + this.type + '">'
   + '<td>' + type + '</td>'
-  + '<td>' + cost + 'gp</td>'
+  + '<td class="right">' + cost + ' gp</td>'
   + '<td>+' + ac_mod + 'AC</td>'
   + '<td>Strength requirement: ' + strength_req + (stealth_mod == 'Disadvantage' ? ', disadvantage to Stealth' : '') + '</td>'
   + '</tr>';
