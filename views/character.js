@@ -95,25 +95,34 @@ $(document).ready(function() {
 
   $('#roll').click(function() {
     var input = prompt('Roll:');
+    var d = input.indexOf('d');
+    var number = parseInter(input.substring(0, d));
+    var die = parseInter(input.substring(d + 1));
+    
     if (!isNaN(input)) {
+      if (navigator.onLine && [4, 6, 8, 10, 20].includes(die)) {
+        $('#i').attr('src', 'http://a.teall.info/dice/?notation=' + 'd' + input + '&roll');
+        $('#i').on('load', function() {
+          $('#i_holder').show();
+        })
+        return;
+      }
       var roll = Math.floor(Math.random() * parseInter(input) + 1);
       alert('Rolled ' + roll);
       return;
     }
-    var d = input.indexOf('d');
-    var number = parseInter(input.substring(0, d));
-    var die = parseInter(input.substring(d + 1));
+
     if (die == 0 || (number == 0 && input.substring(0, d) != '')) {
-      alert('Crit fail!');
+      alert('Crit fail! You entered an incorrect format.');
     } else {
-      if (navigator.onLine) {
+      if (navigator.onLine && [4, 6, 8, 10, 20].includes(die)) {
         $('#i').attr('src', 'http://a.teall.info/dice/?notation=' + input + '&roll');
         $('#i').on('load', function() {
           $('#i_holder').show();
         })
         return;
       }
-      if (number == 0 && input.substring(0, d) != '')
+      if (number == 0)
         number = 1;
       var roll = Math.floor(Math.random() * die + 1) * number;
       alert('Rolled ' + roll);
