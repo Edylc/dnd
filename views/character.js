@@ -102,9 +102,9 @@ $(document).ready(function() {
     if (!isNaN(input)) {
       if (navigator.onLine && [4, 6, 8, 10, 20].includes(die)) {
         $('#i').attr('src', 'http://a.teall.info/dice/?notation=' + 'd' + input + '&roll');
+        var start = (new Date()).getTime()
         $('#i').on('load', function() {
-          $('#i_holder').show();
-          $('#i_cover').fadeIn(10);
+          $('#i_holder').fadeIn(300);
         })
         return;
       }
@@ -119,8 +119,7 @@ $(document).ready(function() {
       if (navigator.onLine && [4, 6, 8, 10, 20].includes(die)) {
         $('#i').attr('src', 'http://a.teall.info/dice/?notation=' + input + '&roll');
         $('#i').on('load', function() {
-          $('#i_holder').show();
-          $('#i_cover').fadeIn(10);
+          $('#i_holder').fadeIn(300);
         })
         return;
       }
@@ -133,7 +132,6 @@ $(document).ready(function() {
 
   $('#i_close').click(function() {
     $('#i_holder').hide();
-    $('#i_cover').hide();
   })
 
   $('#save').click(function() {localStorage.setItem('player', JSON.stringify(player))});
