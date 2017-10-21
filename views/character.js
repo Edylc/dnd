@@ -95,6 +95,13 @@ $(document).ready(function() {
 
   $('#roll').click(function() {
     var input = prompt('Roll:');
+    if (navigator.onLine) {
+      $('#i').attr('src', 'http://a.teall.info/dice/?notation=' + input + '&roll');
+      $('#i').on('load', function() {
+        $('#i_holder').show();
+      })
+      return;
+    }
     if (!isNaN(input)) {
       var roll = Math.floor(Math.random() * parseInter(input) + 1);
       alert('Rolled ' + roll);
@@ -110,6 +117,10 @@ $(document).ready(function() {
       alert('Rolled ' + roll);
     }
   });
+
+  $('#i_close').click(function() {
+    $('#i_holder').hide();
+  })
 
   $('#save').click(function() {localStorage.setItem('player', JSON.stringify(player))});
 });

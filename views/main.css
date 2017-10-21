@@ -296,7 +296,7 @@ tr {
   font-size: 15px;
   color: white;
   background-color: #a00b0b;
-  border: 3px solid grey;
+  border: 3px solid dimgrey;
   text-align: center;
   cursor: pointer;
 }
@@ -312,4 +312,40 @@ tr {
 .selected {
   background-color: darkred;
   padding: 10px;
+}
+
+#i_holder {
+  display: none;
+  position: fixed;
+  width: 500px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -200px;
+}
+
+#i {
+  width: 500px;
+  height: 400px;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+#i_close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  color: white;
+  line-height: 30px;
+  border-radius: 15px;
+  background-color: grey;
+  margin-top: -13px;
+  margin-right: -12px;
+  font-size: 18px;
 }
