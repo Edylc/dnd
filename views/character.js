@@ -98,7 +98,7 @@ $(document).ready(function() {
     var d = input.indexOf('d');
     var number = parseInter(input.substring(0, d));
     var die = parseInter(input.substring(d + 1));
-    
+
     if (!isNaN(input)) {
       if (navigator.onLine && [4, 6, 8, 10, 20].includes(die)) {
         $('#i').attr('src', 'http://a.teall.info/dice/?notation=' + 'd' + input + '&roll');

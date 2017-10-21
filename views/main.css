@@ -348,6 +348,18 @@ tr {
   font-size: 18px;
 }
 
+#i_cover {
+  width: 140px;
+  height: 60px;
+  background-color: whitesmoke;
+  padding: 2px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 12px;
+  font-family: Courier;
+}
+
 .right {
   text-align: right;
   padding-right: 3px;
