@@ -134,7 +134,10 @@ $(document).ready(function() {
     $('#i_holder').hide();
   })
 
-  $('#save').click(function() {localStorage.setItem('player', JSON.stringify(player))});
+  $('#save').click(function() {
+    alert('Saved!');
+    localStorage.setItem('player', JSON.stringify(player));
+  });
 });
 
 function makeEquipment(li) {
@@ -164,9 +167,12 @@ function reminders() {
   var stat_mods = player.race.stats;
   var num_skills = player.class.num_skills;
   var skill_choices = player.class.skills;
-  var languages = 'Replace "Choose Language" with your choice<br>';
-  var ac = 'Change your AC based on equipment and dexterity<br>';
+  var constitution = 'Changing constitution will NOT change your HP!<br>'
+  var ac = 'Change your AC based on equipment and dexterity.<br>';
+  var languages = 'Replace "Choose Language" with your choice.<br>';
+  var archetype = 'Pick an archetype for your class, if at the right level.<br>';
   var background = 'Write yourself a background story!<br>';
+  var further_info = '<br>Visit 5etools for more detailed DnD information.';
 
   remind += 'Racial stat modifiers:<br>';
   for (var i in stat_mods) {
@@ -178,7 +184,7 @@ function reminders() {
   remind += 'Choose ' + num_skills + ' of:<br>';
   for (var skill of skill_choices)
     remind += '-' + skill.type + '<br>';
-  remind += languages + ac + background;
+  remind += constitution + ac + languages + archetype + background + further_info;
   return remind;
 }
 
