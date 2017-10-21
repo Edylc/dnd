@@ -315,21 +315,19 @@ tr {
 }
 
 #i_holder {
-  display: none;
   position: fixed;
-  width: 500px;
-  height: 400px;
+  width: 700px;
+  height: 500px;
   top: 50%;
   left: 50%;
   margin-top: -250px;
-  margin-left: -200px;
+  margin-left: -350px;
+  display: none;
 }
 
 #i {
-  width: 500px;
-  height: 400px;
-  padding: 0px;
-  margin: 0px;
+  width: 700px;
+  height: 500px;
   border: none;
 }
 
