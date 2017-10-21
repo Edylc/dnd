@@ -104,6 +104,7 @@ $(document).ready(function() {
         $('#i').attr('src', 'http://a.teall.info/dice/?notation=' + 'd' + input + '&roll');
         $('#i').on('load', function() {
           $('#i_holder').show();
+          $('#i_cover').fadeIn(10);
         })
         return;
       }
@@ -119,6 +120,7 @@ $(document).ready(function() {
         $('#i').attr('src', 'http://a.teall.info/dice/?notation=' + input + '&roll');
         $('#i').on('load', function() {
           $('#i_holder').show();
+          $('#i_cover').fadeIn(10);
         })
         return;
       }
@@ -131,6 +133,7 @@ $(document).ready(function() {
 
   $('#i_close').click(function() {
     $('#i_holder').hide();
+    $('#i_cover').hide();
   })
 
   $('#save').click(function() {localStorage.setItem('player', JSON.stringify(player))});
