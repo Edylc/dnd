@@ -3,7 +3,7 @@ $(document).ready(function() {
     return;
 
   //make mod dynamic
-  var li = ['str', 'dex', 'con', 'wis', 'int', 'cha'];
+  var li = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
   var temp;
   if (!reload) { //load protoplayer
     alert('There are a couple things you will need to do in Background.');
@@ -182,7 +182,7 @@ function reminders() {
     if (isNaN(stat_mods[i]))
       remind += '-' + stat_mods[i] + '<br>';
     else if (stat_mods[i] != 0)
-      remind += '+' + stat_mods[i] + ' ' + ['STR', 'DEX', 'CON', 'WIS', 'INT', 'CHA'][i] + '<br>';
+      remind += '+' + stat_mods[i] + ' ' + ['STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA'][i] + '<br>';
   }
   remind += 'Choose ' + num_skills + ' of:<br>';
   for (var skill of skill_choices)
@@ -241,8 +241,8 @@ function Player() {
   this.str;
   this.dex;
   this.con;
-  this.wis;
   this.int;
+  this.wis;
   this.cha;
   this.name;
   this.hp;
@@ -289,16 +289,16 @@ function Stat(type, short, value) {
 var str = new Stat("Strength", 'str', 0);
 var dex = new Stat("Dexterity", 'dex', 0);
 var con = new Stat("Constitution", 'con', 0);
-var wis = new Stat("Wisdom", 'wis', 0);
 var int = new Stat("Intelligence", 'int', 0);
+var wis = new Stat("Wisdom", 'wis', 0);
 var cha = new Stat("Charisma", 'cha', 0);
-var stats = [str, dex, con, wis, int, cha];
+var stats = [str, dex, con, int, wis, cha];
 player.stats = {
   'str': str,
   'dex': dex,
   'con': con,
-  'wis': wis,
   'int': int,
+  'wis': wis,
   'cha': cha
 };
 

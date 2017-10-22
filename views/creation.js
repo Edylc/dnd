@@ -304,16 +304,16 @@ function Stat(type, short, value) {
 var str = new Stat("Strength", 'str', 0);
 var dex = new Stat("Dexterity", 'dex', 0);
 var con = new Stat("Constitution", 'con', 0);
-var wis = new Stat("Wisdom", 'wis', 0);
 var int = new Stat("Intelligence", 'int', 0);
+var wis = new Stat("Wisdom", 'wis', 0);
 var cha = new Stat("Charisma", 'cha', 0);
-var stats = [str, dex, con, wis, int, cha];
+var stats = [str, dex, con, int, wis, cha];
 player.stats = {
   'str': str,
   'dex': dex,
   'con': con,
-  'wis': wis,
   'int': int,
+  'wis': wis,
   'cha': cha
 };;
 
