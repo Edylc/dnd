@@ -170,7 +170,7 @@ function reminders() {
   var stat_mods = player.race.stats;
   var num_skills = player.class.num_skills;
   var skill_choices = player.class.skills;
-  var constitution = 'Changing constitution will NOT change your HP!<br>'
+  var constitution = 'Changing constitution will NOT automatically change your HP!<br>'
   var ac = 'Change your AC based on equipment and dexterity.<br>';
   var languages = 'Replace "Choice Language" with your choice.<br>';
   var style = 'Pick a style for your class, if at the right level.<br>';
