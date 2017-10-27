@@ -2,7 +2,26 @@ $(document).ready(function() {
   if (!player)
     return;
 
-  //make mod dynamic
+  $('#get').click(function() {
+    $('#text').html(btoa(JSON.stringify(player)));
+  });
+
+  $('#load').click(function() {
+    player = JSON.parse(atob($('#text')[0].value));
+    localStorage.setItem('player', JSON.stringify(player));
+    localStorage.setItem('reload', JSON.stringify(true));
+    location.reload();
+  });
+
+  $('#new').click(function() {
+    window.location = 'https://dunder.herokuapp.com/creation';
+  });
+
+  $('#save').click(function() {
+    alert('Saved!');
+    localStorage.setItem('player', JSON.stringify(player));
+  });
+  
   var li = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
   var temp;
   if (!reload) { //load protoplayer
@@ -133,26 +152,6 @@ $(document).ready(function() {
   $('#i_close').click(function() {
     $('#i_holder').hide();
   })
-
-  $('#get').click(function() {
-    $('#text').html(btoa(JSON.stringify(player)));
-  });
-
-  $('#load').click(function() {
-    player = JSON.parse(atob($('#text')[0].value));
-    localStorage.setItem('player', JSON.stringify(player));
-    localStorage.setItem('reload', JSON.stringify(true));
-    location.reload();
-  });
-
-  $('#new').click(function() {
-    window.location = 'https://dunder.herokuapp.com/creation';
-  });
-
-  $('#save').click(function() {
-    alert('Saved!');
-    localStorage.setItem('player', JSON.stringify(player));
-  });
 });
 
 function makeEquipment(li) {
