@@ -3,7 +3,7 @@ $(document).ready(function() {
     return;
 
   $('#get').click(function() {
-    $('#text').html(btoa(JSON.stringify(player)));
+    $('#text')[0].value = btoa(JSON.stringify(player));
   });
 
   $('#load').click(function() {
