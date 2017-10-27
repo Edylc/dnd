@@ -134,6 +134,17 @@ $(document).ready(function() {
     $('#i_holder').hide();
   })
 
+  $('#get').click(function() {
+    $('#text').html(btoa(JSON.stringify(player)));
+  });
+
+  $('#load').click(function() {
+    player = JSON.parse(atob($('#text')[0].value));
+    localStorage.setItem('player', JSON.stringify(player));
+    localStorage.setItem('reload', JSON.stringify(true));
+    location.reload();
+  });
+
   $('#save').click(function() {
     alert('Saved!');
     localStorage.setItem('player', JSON.stringify(player));

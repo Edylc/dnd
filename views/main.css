@@ -292,6 +292,9 @@ tr {
   top: 7px;
   right: 10px;
   width: 50px;
+}
+
+.save {
   height: 20px;
   font-size: 15px;
   color: white;
@@ -299,6 +302,33 @@ tr {
   border: 3px solid dimgrey;
   text-align: center;
   cursor: pointer;
+}
+
+.save:active {
+  background-color: #770808;
+}
+
+.textload {
+  margin-top: 100px;
+  width: 294px;
+}
+
+#text {
+  width: 288px;
+  background-color: #a00b0b;
+  margin: 0px;
+  height: 70px;
+  color: lightgrey;
+}
+
+#load {
+  float: right;
+  padding: 2px;
+}
+
+#get {
+  float: left;
+  padding: 2px;
 }
 
 .skill {
@@ -363,4 +393,19 @@ tr {
 .right {
   text-align: right;
   padding-right: 3px;
+}
+
+.home {
+  width: 50%;
+  padding: 200px 0px;
+  margin: auto;
+}
+
+.big {
+  font-size: 40px;
+  margin: auto;
+  padding: 10px 0px;
+  margin: 20px 0px;
+  text-align: center;
+  width: 100%;
 }

@@ -87,7 +87,7 @@ function page(target) {
       }
     }
     storePlayer();
-    window.location = url + (navigator.onLine ? '/?player=true' : '');
+    window.location = url + (navigator.onLine ? '/character' : '');
     console.log('switching pages');
     //return 'done';
   }

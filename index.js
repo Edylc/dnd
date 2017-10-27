@@ -4,12 +4,16 @@ var express = require('express'),
 var app = express();
 
 app.use(express.static('views'));
-app.get('*', function(req, res) {
-  if (req.query.player) {
-    res.sendFile(__dirname + '/views/character.html');
-  } else {
-    res.sendFile(__dirname + '/views/creation.html');
-  }
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/views/home.html');
+});
+
+app.get('/creation', function(req, res) {
+  res.sendFile(__dirname + '/views/creation.html');
+})
+
+app.get('/character', function(req, res) {
+  res.sendFile(__dirname + '/views/character.html');
 });
 
 app.get('/main.css', function(req, res) {
