@@ -3,11 +3,11 @@ $(document).ready(function() {
     return;
 
   $('#get').click(function() {
-    $('#text')[0].value = btoa(JSON.stringify(player));
+    $('#text')[0].value = JSON.stringify(player);
   });
 
   $('#load').click(function() {
-    player = JSON.parse(atob($('#text')[0].value));
+    player = JSON.parse($('#text')[0].value);
     localStorage.setItem('player', JSON.stringify(player));
     localStorage.setItem('reload', JSON.stringify(true));
     location.reload();
