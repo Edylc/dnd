@@ -14,14 +14,14 @@ $(document).ready(function() {
   });
 
   $('#new').click(function() {
-    window.location = 'https://dunder.herokuapp.com/creation';
+    window.location = 'http://dunder.herokuapp.com/creation';
   });
 
   $('#save').click(function() {
     alert('Saved!');
     localStorage.setItem('player', JSON.stringify(player));
   });
-  
+
   var li = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
   var temp;
   if (!reload) { //load protoplayer
