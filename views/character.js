@@ -145,6 +145,10 @@ $(document).ready(function() {
     location.reload();
   });
 
+  $('#new').click(function() {
+    window.location = 'https://dunder.herokuapp.com/creation';
+  });
+
   $('#save').click(function() {
     alert('Saved!');
     localStorage.setItem('player', JSON.stringify(player));

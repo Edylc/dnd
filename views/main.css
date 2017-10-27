@@ -291,7 +291,14 @@ tr {
   position: absolute;
   top: 7px;
   right: 10px;
-  width: 50px;
+  width: 60px;
+}
+
+#new {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  width: 140px;
 }
 
 .save {
@@ -321,14 +328,14 @@ tr {
   color: lightgrey;
 }
 
-#load {
-  float: right;
-  padding: 2px;
-}
-
 #get {
   float: left;
-  padding: 2px;
+  width: 110px;
+}
+
+#load {
+  float: right;
+  width: 110px;
 }
 
 .skill {
