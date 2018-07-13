@@ -24,7 +24,8 @@ $(document).ready(function() {
 
   $('.collapsible').click(function() {
     $(this).parent().children().hide();
-  })
+    $(this).show();
+  });
 
   var li = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
   var temp;
