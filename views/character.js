@@ -23,8 +23,15 @@ $(document).ready(function() {
   });
 
   $('.collapsible').click(function() {
-    $(this).parent().children().hide();
-    $(this).show();
+    if (!$(this).hasClass('collapsed')) {
+      $(this).parent().children().hide();
+      $(this).show();
+      $(this).addClass('collapsed');
+    }
+    else {
+      $(this).parent().children().show();
+      $(this).removeClass('collapsed');
+    }
   });
 
   var li = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
