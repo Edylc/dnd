@@ -22,6 +22,10 @@ $(document).ready(function() {
     localStorage.setItem('player', JSON.stringify(player));
   });
 
+  $('.collapsible').click(function() {
+    $(this).parent().children().hide();
+  })
+
   var li = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
   var temp;
   if (!reload) { //load protoplayer
@@ -119,7 +123,7 @@ $(document).ready(function() {
     var die = parseInter(input.substring(d + 1));
 
     if (!isNaN(input)) {
-      if (navigator.onLine && [4, 6, 8, 10, 20].includes(die)) {
+      if (navigator.onLine && [4, 6, 8, 10, 12, 20].includes(die)) {
         $('#i').attr('src', 'http://a.teall.info/dice/?notation=' + 'd' + input + '&roll');
         var start = (new Date()).getTime()
         $('#i').on('load', function() {

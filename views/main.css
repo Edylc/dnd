@@ -416,3 +416,7 @@ tr {
   text-align: center;
   width: 100%;
 }
+
+.collapsible {
+  cursor: pointer;
+}
